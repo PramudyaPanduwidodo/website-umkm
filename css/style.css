@@ -37,3 +37,31 @@ button {
   border: 0;
   border-radius: 999px;
 }
+
+/* Styling Lokasi & Jam Buka */
+.info-lokasi {
+  display: flex;
+  gap: 32px;
+  background: #ffffff; 
+  padding: 24px;
+  border-radius: 16px;
+  margin-top: 16px;
+}
+
+.info-lokasi h3 {
+  margin-top: 0;
+  color: #6f3b1f; 
+}
+
+.info-lokasi p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+/* Responsif untuk layar HP */
+@media (max-width: 600px) {
+  .info-lokasi {
+    flex-direction: column;
+    gap: 16px;
+  }
+}

@@ -38,30 +38,50 @@ button {
   border-radius: 999px;
 }
 
-/* Styling Lokasi & Jam Buka */
-.info-lokasi {
+/* Styling Modern untuk Bagian Waktu & Lokasi */
+.info-container {
   display: flex;
-  gap: 32px;
-  background: #ffffff; 
-  padding: 24px;
-  border-radius: 16px;
-  margin-top: 16px;
+  gap: 20px;
+  margin-top: 15px;
+  flex-wrap: wrap;
 }
 
-.info-lokasi h3 {
-  margin-top: 0;
-  color: #6f3b1f; 
+.info-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  flex: 1;
+  min-width: 250px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.info-lokasi p {
-  margin: 8px 0;
-  line-height: 1.5;
+.info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsif untuk layar HP */
-@media (max-width: 600px) {
-  .info-lokasi {
-    flex-direction: column;
-    gap: 16px;
-  }
+.card-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.info-card h3 {
+  font-size: 18px;
+  color: #2f2118;
+  margin-bottom: 8px;
+}
+
+.info-card p {
+  font-size: 14px;
+  color: #555555;
+  margin: 4px 0;
+}
+
+.sub-lokasi {
+  display: block;
+  font-size: 12px;
+  color: #888888;
+  margin-top: 6px;
+  font-style: italic;
 }

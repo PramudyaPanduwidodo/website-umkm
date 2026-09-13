@@ -38,7 +38,6 @@ button {
   border-radius: 999px;
 }
 
-/* Styling Modern untuk Bagian Waktu & Lokasi */
 .info-container {
   display: flex;
   gap: 20px;
@@ -48,8 +47,9 @@ button {
 
 .info-card {
   background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 24px;
+  border-radius: 8px;
+  border-top: 4px solid #6f3b1f; 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   flex: 1;
   min-width: 250px;
@@ -61,27 +61,26 @@ button {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
-.card-icon {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
 .info-card h3 {
-  font-size: 18px;
+  font-size: 16px;
   color: #2f2118;
-  margin-bottom: 8px;
+  margin-top: 0;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .info-card p {
   font-size: 14px;
   color: #555555;
-  margin: 4px 0;
+  margin: 6px 0;
+  line-height: 1.5;
 }
 
 .sub-lokasi {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   color: #888888;
-  margin-top: 6px;
+  margin-top: 10px;
   font-style: italic;
 }

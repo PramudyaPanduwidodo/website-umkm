@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Kopi Drip Bag Arabika</title>
+  <desc id="desc">Ilustrasi kotak kemasan kopi drip bag praktis berwarna oranye.</desc>
+  <rect width="640" height="360" fill="#fef3c7" />
+  <rect x="220" y="80" width="200" height="200" rx="16" fill="#d97706" />
+  <path d="M250 140h140v30H250z" fill="#fef3c7" />
+  <path d="M270 200h100v10H270z" fill="#fef3c7" />
+</svg>

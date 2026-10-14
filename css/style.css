@@ -131,7 +131,6 @@ a:hover {
   padding-block: var(--space-5); 
 }
 
-/* 4. Style Hero, Tipografi, dan Tombol */
 .hero {
   padding: var(--space-5);
   color: var(--color-surface);
@@ -305,4 +304,168 @@ fieldset {
 .site-footer p {
   max-width: none;
   margin: 0 auto;
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: space-between;
+}
+.brand { margin-bottom: 0; }
+.nav ul { 
+  display: flex; 
+  gap: var(--space-2); 
+  flex-wrap: wrap; 
+}
+.nav li { margin: 0; }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-4);
+  align-items: stretch; 
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--space-2); 
+}
+
+.hero-content .eyebrow {
+  margin-bottom: 0.5rem; 
+}
+
+.hero-content h1 {
+  margin-top: 0;         
+  margin-bottom: 1rem;   
+}
+
+.hero-content p {
+  margin-top: 0;        
+}
+
+#promoButton {
+  margin-top: auto; 
+  align-self: flex-start;
+}
+
+.hero-image { 
+  width: 100%; 
+  border-radius: var(--radius-md); 
+  margin-top: 0 !important;
+  box-shadow: var(--shadow-card);
+}
+
+
+.product-grid, .info-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+.gallery-grid { 
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); 
+  gap: var(--space-3);
+}
+
+.info-container,
+section[aria-labelledby="produk-title"] .product-grid { 
+  grid-template-columns: repeat(2, minmax(0, 1fr)); 
+}
+
+.product-card { 
+  display: flex; 
+  flex-direction: column; 
+  position: relative; 
+}
+.product-badge {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  padding: 0.25rem var(--space-2);
+  color: var(--color-primary-strong);
+  font-size: 0.875rem;
+  font-weight: 800;
+  background: #fef3c7;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+}
+.card-actions {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: auto; 
+}
+
+.tentang-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  align-items: center;
+}
+.tentang-img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.nilai-list {
+  display: flex;
+  gap: var(--space-3);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  justify-content: space-between;
+}
+
+.nilai-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  width: 100%;
+  
+  
+  position: relative; 
+}
+
+.badge-nilai {
+  position: absolute;
+  top: -12px;
+  right: -10px;
+  background: var(--color-accent);
+  color: var(--color-primary-strong);
+  font-weight: 800;
+  font-size: 0.875rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+}
+
+.media-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: 0;
+}
+
+.media-card img {
+  width: 100%;
+  height: 250px;          
+  object-fit: cover;      
+  border-radius: var(--radius-sm);
+}
+
+.media-card figcaption {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.5;
 }

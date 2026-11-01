@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Produk Coffee Waktu - Website UMKM</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/app.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#konten">Lewati ke konten utama</a>
@@ -32,6 +33,13 @@
           <li>Paket kantor mingguan</li>
           <li>Paket tester untuk pelanggan baru</li>
         </ul>
+      </section>
+
+      <section aria-labelledby="produk-dinamis-title">
+        <p class="eyebrow">Data JavaScript</p>
+        <h2 id="produk-dinamis-title">Produk dari Data Lokal</h2>
+        <p id="produk-ringkasan">Data produk akan dimuat melalui JavaScript.</p>
+        <div id="produk-dinamis" class="js-product-grid"></div>
       </section>
 
      <section aria-labelledby="produk-pilihan-title">
@@ -67,6 +75,16 @@
               <a href="#harga-title">Lihat tabel harga</a>
             </div>
           </article>
+          <article class="product-card">
+            <span class="product-badge">Kantor</span>
+            <h3>Paket Kantor Mingguan</h3>
+            <p>Stok kopi untuk kebutuhan seduh satu kantor selama seminggu.</p>
+            <p class="price">Rp150.000</p>
+            <div class="card-actions">
+              <a class="button" href="kontak.html">Tanya produk</a>
+              <a href="#harga-title">Lihat tabel harga</a>
+            </div>
+          </article>
         </div>
       </section>
       <section aria-labelledby="harga-title">
@@ -96,6 +114,11 @@
                 <td>Paket Seduh Rumahan</td>
                 <td>Paket Bundling</td>
                 <td>Rp75.000</td>
+              </tr>
+              <tr>
+                <td>Paket Kantor Mingguan</td>
+                <td>Paket Bundling</td>
+                <td>Rp150.000</td>
               </tr>
             </tbody>
           </table>

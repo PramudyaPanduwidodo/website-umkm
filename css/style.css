@@ -618,3 +618,7 @@ section[aria-labelledby="produk-dinamis-title"] .eyebrow {
   margin-top: 8px;
 }
 
+#produk-unggulan {
+  font-weight: 700;
+  color: var(--color-primary, #6f3b1f);
+}

@@ -93,22 +93,18 @@ function renderProduk(kategoriAktif = "Semua") {
   produkStatus.textContent = `Kategori ${kategoriAktif} menampilkan ${produkTampil.length} produk.`;
 }
 
-// 7. Event Listener pada Tombol Filter
 tombolFilter.forEach((tombol) => {
   tombol.addEventListener("click", (event) => {
     const tombolAktif = event.currentTarget;
     const kategori = tombolAktif.dataset.filter;
 
-    // Pindahkan class is-active
     tombolFilter.forEach((item) => item.classList.remove("is-active"));
     tombolAktif.classList.add("is-active");
 
-    // Render ulang
     renderProduk(kategori);
   });
 });
 
-// 8. Render awal saat halaman dimuat
 document.addEventListener("DOMContentLoaded", () => {
   renderProduk("Semua");
 });

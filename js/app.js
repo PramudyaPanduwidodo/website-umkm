@@ -21,6 +21,7 @@ function statusStok(stok) {
   return { label: "Tersedia", className: "" };
 }
 
+<<<<<<< HEAD
 const produkGrid = document.querySelector("#produk-grid");
 const produkStatus = document.querySelector("#produk-status");
 const tombolFilter = document.querySelectorAll("[data-filter]");
@@ -112,3 +113,45 @@ tombolFilter.forEach((tombol) => {
 document.addEventListener("DOMContentLoaded", () => {
   renderProduk("Semua");
 });
+=======
+function buatKartuProduk(produk) {
+  const status = statusStok(produk.stok);
+  return `
+    <article class="js-product-card">
+      <h3>${produk.nama}</h3>
+      <p class="category-note">${produk.kategori}</p>
+      <p class="price">${formatRupiah(produk.harga)}</p>
+      <span class="stock-badge ${status.className}">${status.label}</span>
+    </article>
+  `;
+}
+
+produkUmkm.forEach((produk) => {
+  console.log("Debug produk:", produk.nama, "stok:", produk.stok);
+});
+
+function renderProduk() {
+  const grid = document.querySelector("#produk-dinamis");
+  const ringkasan = document.querySelector("#produk-ringkasan");
+  const unggulan = document.querySelector("#produk-unggulan");
+
+  if (!grid || !ringkasan || !unggulan) {
+    console.warn("Target render produk belum lengkap.");
+    return;
+  }
+
+  const produkTersedia = produkUmkm.filter((produk) => produk.stok > 0);
+  const produkUnggulanItem = produkUmkm.find((produk) => produk.unggulan === true);
+  const markupProduk = produkTersedia.map(buatKartuProduk).join("");
+
+  grid.innerHTML = markupProduk;
+  ringkasan.textContent = `${produkTersedia.length} produk tersedia dari ${produkUmkm.length} data.`;
+  unggulan.textContent = produkUnggulanItem
+    ? `Produk unggulan: ${produkUnggulanItem.nama}`
+    : "Belum ada produk unggulan.";
+
+  console.table(produkUmkm);
+}
+
+document.addEventListener("DOMContentLoaded", renderProduk);
+>>>>>>> 2ee57fa78c340740d6fa9d85c5fb376b1939b272

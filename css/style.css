@@ -621,6 +621,7 @@ section[aria-labelledby="produk-dinamis-title"] .eyebrow {
 #produk-unggulan {
   font-weight: 700;
   color: var(--color-primary, #6f3b1f);
+<<<<<<< HEAD
 }
 
 .filter-bar {
@@ -663,4 +664,6 @@ section[aria-labelledby="produk-dinamis-title"] .eyebrow {
   background: var(--color-surface);
   color: var(--color-muted);
   font-weight: 700;
+=======
+>>>>>>> 2ee57fa78c340740d6fa9d85c5fb376b1939b272
 }

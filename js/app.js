@@ -21,43 +21,94 @@ function statusStok(stok) {
   return { label: "Tersedia", className: "" };
 }
 
-function buatKartuProduk(produk) {
+const produkGrid = document.querySelector("#produk-grid");
+const produkStatus = document.querySelector("#produk-status");
+const tombolFilter = document.querySelectorAll("[data-filter]");
+
+function buatElemenProduk(produk) {
+  const card = document.createElement("article");
+  card.classList.add("js-product-card");
+
+  const title = document.createElement("h3");
+  title.textContent = produk.nama;
+
+  const category = document.createElement("p");
+  category.classList.add("category-note");
+  category.textContent = produk.kategori;
+
+  const price = document.createElement("p");
+  price.classList.add("price");
+  price.textContent = formatRupiah(produk.harga);
+
+  const stock = document.createElement("span");
   const status = statusStok(produk.stok);
-  return `
-    <article class="js-product-card">
-      <h3>${produk.nama}</h3>
-      <p class="category-note">${produk.kategori}</p>
-      <p class="price">${formatRupiah(produk.harga)}</p>
-      <span class="stock-badge ${status.className}">${status.label}</span>
-    </article>
-  `;
+  stock.classList.add("stock-badge");
+  if (status.className) {
+    stock.classList.add(status.className);
+  }
+  stock.textContent = status.label;
+
+  const removeButton = document.createElement("button");
+  removeButton.type = "button";
+  removeButton.textContent = "Sembunyikan";
+  removeButton.style.marginTop = "1rem";
+  removeButton.addEventListener("click", () => {
+    card.remove();
+    produkStatus.textContent = "Satu kartu disembunyikan dari tampilan sementara.";
+  });
+
+  card.append(title, category, price, stock, removeButton);
+  return card;
 }
 
-produkUmkm.forEach((produk) => {
-  console.log("Debug produk:", produk.nama, "stok:", produk.stok);
-});
+function buatEmptyState(kategori) {
+  const empty = document.createElement("p");
+  empty.classList.add("empty-state");
+  empty.textContent = `Belum ada produk pada kategori "${kategori}".`;
+  return empty;
+}
 
-function renderProduk() {
-  const grid = document.querySelector("#produk-dinamis");
-  const ringkasan = document.querySelector("#produk-ringkasan");
-  const unggulan = document.querySelector("#produk-unggulan");
-
-  if (!grid || !ringkasan || !unggulan) {
-    console.warn("Target render produk belum lengkap.");
+function renderProduk(kategoriAktif = "Semua") {
+  if (!produkGrid || !produkStatus) {
+    console.warn("Target render produk tidak ditemukan.");
     return;
   }
 
-  const produkTersedia = produkUmkm.filter((produk) => produk.stok > 0);
-  const produkUnggulanItem = produkUmkm.find((produk) => produk.unggulan === true);
-  const markupProduk = produkTersedia.map(buatKartuProduk).join("");
+  const produkTampil = kategoriAktif === "Semua" 
+    ? produkUmkm 
+    : produkUmkm.filter((produk) => produk.kategori === kategoriAktif);
 
-  grid.innerHTML = markupProduk;
-  ringkasan.textContent = `${produkTersedia.length} produk tersedia dari ${produkUmkm.length} data.`;
-  unggulan.textContent = produkUnggulanItem
-    ? `Produk unggulan: ${produkUnggulanItem.nama}`
-    : "Belum ada produk unggulan.";
+  produkGrid.replaceChildren();
 
-  console.table(produkUmkm);
+  if (produkTampil.length === 0) {
+    produkGrid.append(buatEmptyState(kategoriAktif));
+    produkStatus.textContent = "0 produk ditemukan.";
+    return;
+  }
+
+  produkTampil.forEach((produk) => {
+    produkGrid.append(buatElemenProduk(produk));
+  });
+
+  produkStatus.textContent = `Kategori ${kategoriAktif} menampilkan ${produkTampil.length} produk.`;
 }
 
-document.addEventListener("DOMContentLoaded", renderProduk);
+// 7. Event Listener pada Tombol Filter
+tombolFilter.forEach((tombol) => {
+  tombol.addEventListener("click", (event) => {
+    const tombolAktif = event.currentTarget;
+    const kategori = tombolAktif.dataset.filter;
+
+    // Pindahkan class is-active
+    tombolFilter.forEach((item) => item.classList.remove("is-active"));
+    tombolAktif.classList.add("is-active");
+
+    // Render ulang
+    renderProduk(kategori);
+  });
+});
+
+// 8. Render awal saat halaman dimuat
+document.addEventListener("DOMContentLoaded", () => {
+  renderProduk("Semua");
+});
